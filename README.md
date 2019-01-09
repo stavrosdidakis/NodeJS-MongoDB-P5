@@ -1,4 +1,4 @@
-# Setting and Visualizing the Database
+# Visualizing the Database
 
 ## Introduction
 This project demonstrates how to develop a distributed communication and visualization system with Node.js, mongoDB, and P5.js. The system uses a Node.js client to generate data entries, which are then logged via the MongoDB library to our online database in mlab. Using an API (Application Programming Interface) we are able to visualize these entries on our client application with the use of P5.js.
@@ -11,11 +11,17 @@ For this work, [mongoDB](https://www.mongodb.com/what-is-mongodb) and [mlab](htt
 
 After setting up your free account with mlab, create a new database, a new collection, and a new user. For the database, select the Sandbox mode, AWS, and a region closer to you. After the deployment process finishes, create a new collection (under the **Collections** tab), and a new database user (under **Users**, as image below). Finally, you need to get an API Key and activate the Data API. To access this, click your **user** name on the top right corner of the window.
 
-![alt text](assets/mLabCreateNewDeployment.png "Create Database")
+<p align="center">
+<img alt="mLabCreateNewDeployment" src="assets/mLabCreateNewDeployment.png" width="480" />
+</p>
 
-![alt text](assets/mLab_new_deployment_database_details.png "Database Settings")
+<p align="center">
+<img alt="settings" src="assets/mLab_new_deployment_database_details.png" width="480" />
+</p>
 
-![alt text](assets/apikey.png "API Key")
+<p align="center">
+<img alt="apikey" src="assets/apikey.png" width="480" />
+</p>
 
 Screenshots taken from [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose)
 
@@ -49,7 +55,7 @@ var MongoClient = require('mongodb').MongoClient;
 //dbuser1 - username of the database
 //dbuser1pass - password for the user
 //file-test - name of the database
-var url = 'mongodb://dbuser1:dbuser1pass@ds161022.mlab.com:61022/file-test';
+var url = 'mongodb://dbuser1:dbuser1pass@ds123456.mlab.com:61022/file-test';
 
 //Function to get a random number, from a minimum to a maximum value
 function getRandomInt(min, max) {
@@ -127,7 +133,10 @@ Data added
 2019-01-02_13:34:01, Y: 523
 2019-01-02_13:34:01, Radius: 84
 ```
-![alt text](assets/mlabCollectionData.png "Collection Data")
+
+<p align="center">
+<img alt="collection" src="assets/mlabCollectionData.png" width="480" />
+</p>
 
 ---
 
@@ -153,7 +162,7 @@ function setup() {
   // - The name of the database (i.e. file-test)
   // - the name of the collection (i.e. Collection1)
   // - The API key
-  url = 'https://api.mlab.com/api/1/databases/file-test/collections/Collection1?apiKey=PKpfLubMMfzg9P3yxyHNwGRYGOW1eXZy'
+  url = 'https://api.mlab.com/api/1/databases/file-test/collections/Collection1?apiKey=XXXXXXXXXXXXXXXXX'
   loadDatabase(); //call the loadDatabase function
 }
 
@@ -207,4 +216,8 @@ function draw(){
 ```
 To execute this code, open the **index.html** file in Chrome (recommended), or use the Atom Live Server (instructions how to install and use it, [here](https://webdesign.tutsplus.com/tutorials/quick-tip-setup-local-previews-with-atom--cms-24348)).
 
-Image from the P5 database visualization:![alt text](assets/screen-mongoVisualize.png "P5 Visualization")
+Image from the P5 database visualization:
+
+<p align="center">
+<img alt="visualize" src="assets/screen-mongoVisualize.png" width="480" />
+</p>

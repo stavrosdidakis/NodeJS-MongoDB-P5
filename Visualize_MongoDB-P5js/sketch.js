@@ -11,7 +11,7 @@ function setup() {
   // - The name of the database (i.e. file-test)
   // - the name of the collection (i.e. Collection1)
   // - The API key
-  url = 'https://api.mlab.com/api/1/databases/file-test/collections/Collection1?apiKey=PKpfLubMMfzg9P3yxyHNwGRYGOW1eXZy'
+  url = 'https://api.mlab.com/api/1/databases/file-test/collections/Collection1?apiKey=XXXXXXXXXXXXXXXXX'
   loadDatabase(); //call the loadDatabase function
 }
 
