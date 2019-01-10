@@ -55,7 +55,7 @@ var MongoClient = require('mongodb').MongoClient;
 //dbuser1 - username of the database
 //dbuser1pass - password for the user
 //file-test - name of the database
-var url = 'mongodb://dbuser1:dbuser1pass@ds123456.mlab.com:61022/file-test';
+var url = 'mongodb://dbuser1:dbuser1pass@dsXXXXXX.mlab.com:61022/file-test';
 
 //Function to get a random number, from a minimum to a maximum value
 function getRandomInt(min, max) {
