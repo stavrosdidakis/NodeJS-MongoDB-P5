@@ -1,7 +1,7 @@
 # Visualizing the Database
 
 ## Introduction
-This project demonstrates how to develop a distributed communication and visualization system with Node.js, mongoDB, and P5.js. The system uses a Node.js client to generate data entries, which are then logged via the MongoDB library to our online database in mlab. Using an API (Application Programming Interface) we are able to visualize these entries on our client application with the use of P5.js.
+This project demonstrates how to develop a distributed communication and visualization system with Node.js, mongoDB, and P5.js. The system uses a Node.js client to generate data entries, which are then logged in a MongoDB library to our online database in mlab. Using an API (Application Programming Interface), we are able to visualize these entries on our client application with the use of P5.js.
 
 ---
 
@@ -34,7 +34,7 @@ To send new data to the database, Node.js will be used here as a client. Make su
 ```Terminal
 node -v
 ```
-The following code generates a JSON object with four different values, and sends it to the mongo database we have just created in mlab. The package.json file references all libraries needed for this project, which they are also included in the node_modules folder, or they can be installed using Terminal (or Command Prompt) with:
+All dependencies for the Node.js project are include in the **node_modules** folder (in NodeJs-Timelog-MongoDB on GitHub), or they can be installed using the **package.json** file. Download the project from the GitHub, and use Terminal to navigate to this directory with cd (check [this link](https://macpaw.com/how-to/use-terminal-on-mac) if you are not familiar with the process). To install them from scratch, run the following in Terminal:
 
 ```Terminal
 npm install
@@ -44,9 +44,10 @@ After we make sure that we have the necessary libraries (in this case the mongod
 
 Following that, the function **getRandomInt()** generates a random number everytime that it is called, within a specified ranged (minimum to maximum). This is used later to generate values for the randomX, randomY, and randomRadius variables.
 
-The last function used here, repeats itself every second, and this is because it is included within **setInterval**, which creates a loop according to a timing value (in ms) that is set at the end of the closing parenthesis of the function (in this case 1000). Thus, every second we generate new random values for the variables randomX, randomY, and randomRadius (when calling the getRandomInt function and assigning the returned value to each separate variable), and also we create a new variable that contains current time and date. While the loop of this function is every second, the data are sent to the database just once for every minute.
+The last function used here is the **setInterval(function(){ ... }, 1000);** which creates a loop according to a timing value (in ms) that is set at the end of the closing parenthesis - in this case 1000. Thus, every second we generate new random values for the variables randomX, randomY, and randomRadius (when calling the getRandomInt function and assigning the returned value to each separate variable), and also we create a new variable that contains current time and date.
 
-When the current second of the system equals to "0", the **mongoLog** variable will create a JSON object that contains our four values, and pass them on to the **MongoClient** object. Here, make sure that the **db.collection** has the name of the Collection that you set in your mlab database. If everything is set properly, then the code will return the message "Data added", and then repeat the same process after one minute.
+
+While the loop of this function is every second, the data are sent to the database just once for every minute. When the current second of the system equals to "0", the **mongoLog** variable will create a JSON object that contains our four values, and pass them on to the **MongoClient** object. Here, make sure that the **db.collection** has the name of the Collection that you set in your mlab database. If everything is set properly, then the code will return the message "Data added", and then repeat the same process after one minute.
 
 ```JavaScript
 //Import MongoDB
@@ -144,7 +145,7 @@ Data added
 
 P5.js is used here to create a simple visualization of the database values that we created. [P5.js](https://p5js.org) is a JavaScript library used by artists and designers in creating interactive media content for the web - here is a [getting started](https://p5js.org/get-started/) guide if you are not familiar with the library.
 
-For this work, we use the values of the database entries to generate properties for the visualization - corresponding to position and size of the shapes that appear on the screen. To accomplish this, we make use of mlab's API, which returns a JSON object with all database entries. By creating a for loop in the drawData function, we access all values individually, and assign them to the drawing settings of the shape - i.e. x and y define the location of the shape, and the radius the size. Color is generated for each shape - size of the array depends on the database.
+For this work, we use the values of the database entries to generate properties for the visualization - corresponding to position and size of the shapes that appear on the screen. To accomplish this, we make use of mlab's **API**, which returns a JSON object with all database entries. By creating a **for loop** in the drawData function, we access all values individually, and assign them to the drawing settings of the shape - i.e. x and y define the location of the shape, and the radius the size. Color is generated for each shape - size of the array depends on the database.
 
 The code also works dynamically (in real-time). As the database grows, a new entry is visualized on the screen, with the new shape responding to the location and size values of the database - color is also dynamically generated with random values for RGB.
 
